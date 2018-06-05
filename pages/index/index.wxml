@@ -1,0 +1,22 @@
+<!--index.wxml-->
+<view class="container">
+  <scroll-view wx:if="{{hasList}}" scroll-y class="jarlist">
+    <view wx:key="id" wx:for="{{jarlist}}" class="list-item" data-jid="{{item.id}}" bindtap='jardetail'>
+      <view class="jar-info-left">
+        <text class="title">{{item.title}}</text>
+        <text class="creator">由 {{item.creator}} 创建</text>
+      </view>
+      <view class="jar-info-right">
+        <text class="total">{{item.total}}次</text>
+      </view>
+    </view>
+  </scroll-view>
+  <view wx:else class="welcome-view">
+    <text class="intro">这里空空的~</text>
+    <text class="intro">点击下面的+号创建你第一个自律罐把~</text>
+    <text class="intro link" bindtap='jump2help'>不知道怎样玩？点这里了解一下玩法</text>
+  </view>
+</view>
+<view class="add-btn">
+    <view class="float-btn" hover-class="float-btn-p" bindtap="go2newpage">+</view>
+</view>

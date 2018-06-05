@@ -1,0 +1,29 @@
+/* pages/success/success.wxss */
+page{
+  background-color: #011935;
+  text-align: center;
+  color: white;
+}
+
+.success-logo{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.generate-qrcode{
+  height:300rpx;
+  width:300rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+text{
+  display: block;
+  width:70%;
+}
+
+.help-entrance{
+  margin-top: 40rpx;
+  font-size:30rpx;
+  color:#1db0b8;
+}

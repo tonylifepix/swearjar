@@ -1,0 +1,6 @@
+<!--pages/pay/pay.wxml-->
+<view class="container">
+  <text class="h1">Oops!</text>
+  <text>下次别再犯同样的错了哦~</text>
+  <view class="float-btn" hover-class='float-btn-p' bindtap="mark">记录</view>
+</view>

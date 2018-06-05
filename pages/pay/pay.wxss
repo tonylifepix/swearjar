@@ -1,0 +1,29 @@
+/* pages/pay/pay.wxss */
+page{
+  background-color: #011935;
+  text-align: center;
+  color: white;
+}
+
+.h1{
+  color: #37c6c0;
+  font-size: 100rpx;
+  margin-bottom: 100rpx;
+}
+
+
+.float-btn {
+  margin-top: 100rpx; 
+  line-height: 128rpx;
+  font-size: 50rpx;
+  color: #fff;
+  text-align: center;
+  background: #37c6c0;
+  width: 256rpx;
+  height: 128rpx;
+  border-radius: 128rpx;
+}
+
+.float-btn-p{
+  background: #1db0b8;
+}

@@ -1,0 +1,111 @@
+.jar-info {
+  display: block;
+  background: #011935;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+.title {
+  height: 80rpx;
+  display: block;
+  width: 100%;
+  font-size: 60rpx;
+}
+
+.content {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  width: 80%;
+  color: #fff;
+  font-size: 30rpx;
+}
+
+.creation {
+  height: 60rpx;
+  margin-top: 20rpx;
+  display: block;
+  font-size: 30rpx;
+  color: #aeaeae;
+}
+
+.total {
+  display: block;
+  color: #1db0b8;
+  margin-top: 5rpx;
+  font-size: 86rpx;
+}
+
+.jar-action {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #011935;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.jar-action > button {
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+  width: 90%;
+}
+
+.commitee-title {
+  display: block;
+  text-align: left;
+  width: 90%;
+  color: #a0a0a0;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.commitee-list {
+  width: 100%;
+  display: block;
+}
+
+.commitee {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100rpx;
+  border: #aeaeae solid;
+  border-width:0 0 1rpx 0;
+  background-color: #fff;
+}
+
+.commitee > .name {
+  line-height: 100rpx;
+  width: 40%;
+  margin-left: 20rpx;
+}
+
+.commitee > .time {
+  line-height: 100rpx;
+  width: 40%;
+  text-align: right;
+  margin-left: auto;
+  margin-right: 20rpx;
+  color: #1db0b8;
+}
+
+.avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  border-radius: 60rpx;
+  border: #aeaeae 1px;
+  background-color: #000;
+}
+
+.encouragement {
+  display: block;
+  margin-top: 200rpx;
+}

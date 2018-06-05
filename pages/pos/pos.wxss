@@ -1,0 +1,16 @@
+/* pages/pos/pos.wxss */
+page{
+  background-color: #011935;
+  text-align: center;
+  color: white;
+}
+
+.success-logo{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+text{
+  display: block;
+  width:70%;
+}

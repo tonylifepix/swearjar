@@ -1,0 +1,77 @@
+/**index.wxss**/
+.welcome-view{
+  padding-top: 400rpx;
+}
+.intro{
+  display: block;
+  flex-direction: row;
+  text-align: center;
+}
+.link{
+  margin-top:20rpx;
+  color:#1db0b8;
+  text-decoration: underline;
+}
+
+.list-item{
+  display: flex;
+  height: 150rpx;
+  background: #fff;
+  padding: 20rpx;
+  margin-bottom: 10rpx; 
+}
+
+.jar-info-left{
+  margin: 10rpx;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.jar-info-left > .title{
+  display: block;
+  font-size: 60rpx;
+}
+
+.jar-info-left > .creator{
+  display: block;
+  font-size: 30rpx;
+  color: #aeaeae;
+}
+
+.jar-info-right{
+  display: block;
+  margin: 10rpx;
+  text-align: right;
+  float: right;
+  right: 25rpx;
+  bottom: 25rpx;
+  width: 30%;
+}
+
+.jar-info-right > .total{
+  float: right;
+  color: #1db0b8;
+  padding-top: 5rpx;
+  font-size: 86rpx;
+}
+.float-btn {
+  line-height: 120rpx;
+  font-size: 80rpx;
+  color: #fff;
+  text-align: center;
+  float: right;
+  flex-direction: row;
+  position: fixed;
+  right: 25rpx;
+  bottom: 25rpx;
+  background: #37c6c0;
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 128rpx;
+  box-shadow: 3rpx 3rpx 3rpx #aaa;
+}
+
+.float-btn-p{
+  background: #1db0b8;
+}

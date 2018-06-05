@@ -1,0 +1,54 @@
+/* pages/new/new.wxss */
+page{
+  background-color: #011935;
+  text-align: center;
+  color: white;
+}
+
+.title{
+  margin-top: 150rpx; 
+  color: white;
+}
+
+.swear{
+  margin-top: 60rpx; 
+  height: 80rpx;
+  border: #fff solid;
+  border-width: 0 0 5rpx 0;
+  font-size: 50rpx;
+  color: white;
+}
+
+.karma{
+  margin-top: 60rpx; 
+  color: white;
+}
+
+.content{
+  margin-top: 60rpx;
+}
+
+.content > textarea{
+  margin-top: 30rpx; 
+  height: 250rpx;
+  border: #fff solid;
+  border-width: 3rpx;
+  font-size: 50rpx;
+  color: white;
+}
+
+.float-btn {
+  margin-top: 100rpx; 
+  line-height: 128rpx;
+  font-size: 50rpx;
+  color: #fff;
+  text-align: center;
+  background: #37c6c0;
+  width: 256rpx;
+  height: 128rpx;
+  border-radius: 128rpx;
+}
+
+.float-btn-p{
+  background: #1db0b8;
+}

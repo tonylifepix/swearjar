@@ -1,0 +1,6 @@
+<!--pages/pos/pos.wxml-->
+<view class="container">
+  <icon class="success-logo" type="success" size="70" color='#37c6c0'/>
+  <text>记录成功</text>
+  <text>下次就不要再犯同样的错误了哦~</text>
+</view>

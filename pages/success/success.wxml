@@ -1,0 +1,10 @@
+<!--pages/success/success.wxml-->
+<view class="container">
+  <icon class="success-logo" type="success" size="70" color='#37c6c0'/>
+  <text>创建成功</text>
+  <!--TODO:通过后台生成一个本罐二维码并替换下面的myqrcodec-->
+  <!--具体参考 https://developers.weixin.qq.com/miniprogram/dev/api/qrcode.html-->
+  <img class="generate-qrcode" src="{{myqrcode}}" />
+  <text>你可以右上角把这个罐子转发给大家或者把上面这个二维码截图保存哦~</text>
+  <text class="help-entrance" bindtap=''>不知道怎样玩？点这里了解一下玩法</text>
+</view>

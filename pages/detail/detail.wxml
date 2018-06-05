@@ -1,0 +1,26 @@
+<!--detail.wxml-->
+<view class="container">
+  <view class="jar-info">
+    <text class="title">{{info.title}}</text>
+    <text wx:if="{{info.content}}" class="content">{{info.content}}</text>
+    <text class="creation">自 {{info.creator}} 于 {{info.idate}}创建以来已经触发了</text>
+    <text class="total">{{info.total}}次</text>
+  </view>
+  <view class="jar-action">
+    <button plain='true' style='color:#37c6c0' bindtap='admit'>自罚</button>
+    <button plain='true' style='color:#fff' bindtap='popMenu'>更改</button>
+  </view>
+  <view wx:if="{{commiteelist}}" class="commitee-list">
+    <text class="commitee-title">参与者</text>
+    <view wx:key="ctime" wx:for="{{commiteelist}}">
+      <view class="commitee">
+        <image class="avatar" src='{{item.uava}}'></image>
+        <text class="name">{{item.uname}}</text>
+        <text class="time">{{item.ctime}}</text>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="no-commitee">
+    <text class="encouragement">没有违背自己的誓言，好样的！</text>
+  </view>
+</view>

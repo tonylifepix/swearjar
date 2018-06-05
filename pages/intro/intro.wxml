@@ -1,0 +1,6 @@
+<!--pages/intro/intro.wxml-->
+<view class="container">
+  <text>您的好友邀请您和ta一起自律~</text>
+  <text class="h1">dummy title</text>
+  <view class="float-btn" hover-class='float-btn-p' bindtap="mark">加入</view>
+</view>

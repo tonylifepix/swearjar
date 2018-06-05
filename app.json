@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/new/new",
+    "pages/success/success",
+    "pages/pos/pos",
+    "pages/help/help",
+    "pages/pay/pay",
+    "pages/intro/intro"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#011935",
+    "navigationBarTitleText": "自律罐",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#eeeeee"
+  }
+}
