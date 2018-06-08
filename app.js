@@ -48,7 +48,6 @@ App({
           })
         }
         else{
-          console.log(this.globalData.token)
           wx.authorize({ 
             scope: 'scope.userInfo' 
           })
