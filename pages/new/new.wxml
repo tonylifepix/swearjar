@@ -1,15 +1,14 @@
 <!--pages/new/new.wxml-->
 <view class="container">
   <form bindsubmit="create">
-    <view class="container">
-      <text class="title">在此约定</text>
-      <input class="swear" name="title" auto-focus/>
-      <text class="karma">如有违反，愿意受罚</text>
-      <view class="content">
-        <text>具体描述(可选）</text>
-        <textarea name="content"></textarea>
-      </view>
-      <view class="float-btn" hover-class='float-btn-p' formType="submit">创建</view>
+    <text class="title">在此约定</text>
+    <input class="swear" name="title" auto-focus/>
+    <text class="karma">如有违反，愿意受罚</text>
+    <view class="content">
+      <text>具体描述(可选）</text>
+      <textarea name="content"></textarea>
     </view>
+    <view class="float-btn" hover-class='float-btn-p' formType="submit">创建</view>
   </form>
 </view>
+
