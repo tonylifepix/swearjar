@@ -80,7 +80,7 @@ Page({
   },
   popMenu: function(){
     wx.showActionSheet({
-      itemList: ['清空记录', '修改', '删除'],
+      itemList: ['分享','清空记录', '修改', '删除'],
       success: function (res) {
         console.log(res.tapIndex)
       },

@@ -8,18 +8,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    jarlist:[{
-      id:1,
-      title:'dummy title',
-      creator:'dummy',
-      total:21,
-    },
-      {
-        id: 2,
-        title: 'dummy title 2',
-        creator: 'dummy',
-        total: 9,
-      }]
+    jarlist:[]
   },
   //事件处理函数
   go2newpage: function() {
@@ -38,7 +27,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -60,7 +49,23 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  onShow:function(e){
+    app.tokenCallback = token => {
+      wx.request({
+        url: 'https://tonylifepix.cn/api/item/list',
+        success: res => {
+          this.setData({
+            jarlist: res.data.data.user_item
+          })
+        },
+        data: {
+          'token': app.globalData.token
+        },
+        method: 'GET'
+      })
+    }
+  },
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({

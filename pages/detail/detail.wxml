@@ -8,7 +8,7 @@
   </view>
   <view class="jar-action">
     <button plain='true' style='color:#37c6c0' bindtap='admit'>自罚</button>
-    <button plain='true' style='color:#fff' bindtap='popMenu'>更改</button>
+    <button plain='true' style='color:#fff' bindtap='popMenu'>更多</button>
   </view>
   <view wx:if="{{commiteelist}}" class="commitee-list">
     <text class="commitee-title">参与者</text>
@@ -21,6 +21,6 @@
     </view>
   </view>
   <view wx:else class="no-commitee">
-    <text class="encouragement">没有违背自己的誓言，好样的！</text>
+    <text class="encouragement">没有违背自己的誓言，好样儿的！</text>
   </view>
 </view>

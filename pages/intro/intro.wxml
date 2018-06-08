@@ -3,4 +3,5 @@
   <text>您的好友邀请您和ta一起自律~</text>
   <text class="h1">dummy title</text>
   <view class="float-btn" hover-class='float-btn-p' bindtap="mark">加入</view>
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取信息 </button>
 </view>
