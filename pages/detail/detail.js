@@ -1,4 +1,6 @@
 // pages/detail/detail.js
+//获取应用实例
+const app = getApp()
 Page({
 
   /**
@@ -20,47 +22,6 @@ Page({
       uava: '',
       uname: 'dummy1',
       ctime: '2001/01/02',
-    }, {
-      uid: 8,
-      uava: '',
-      uname: 'dummy1',
-      ctime: '2001/01/02',
-    }, {
-      uid: 7,
-      uava: '',
-      uname: 'dummy1',
-      ctime: '2001/01/02',
-    }, {
-      uid: 6,
-      uava: '',
-      uname: 'dummy1',
-      ctime: '2001/01/02',
-    }, {
-      uid: 5,
-      uava: '',
-      uname: 'dummy1',
-      ctime: '2001/01/02',
-    }, {
-      uid: 4,
-      uava: '',
-      uname: 'dummy1',
-      ctime: '2001/01/02',
-    }, {
-      uid: 3,
-      uava: '',
-      uname: 'dummy1',
-      ctime: '2001/01/02',
-    }, {
-      uid: 2,
-      uava: '',
-      uname: 'dummy1',
-      ctime: '2001/01/02',
-    },
-    {
-      uid: 1,
-      uava: '',
-      uname: 'dummy2',
-      ctime: '2001/01/01',
     }]
   },
 
@@ -71,7 +32,26 @@ Page({
    */
   onLoad: function (options) {
     let jarid = options.id
-    this.setData({jid:jarid})
+    console.log('jid:' + jarid)
+    
+    wx.request({
+      url: 'https://tonylifepix.cn/api/item/detail/'+jarid,
+      success: res => {
+        console.log(res.data);
+        console.log(res.data.data.owner.username)
+        console.log(app.globalData.username)
+        console.log(res.data.data.owner.username == app.globalData.username)
+        this.setData({ 
+          jid: res.data.data.id,
+          isCreator: (res.data.data.owner.username == app.globalData.username),
+        })
+      },
+      data: {
+        'token': app.globalData.token
+      },
+      method: 'GET'
+    })
+
   },
   admit: function(jid){
     wx.navigateTo({

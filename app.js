@@ -2,7 +2,8 @@
 App({
   globalData: {
     userInfo: null,
-    token: ''
+    token: '',
+    username:''
   },
   onLaunch: function () {
     // 展示本地存储能力
@@ -15,6 +16,7 @@ App({
     wx.login({
       success: res => {
         code = res.code
+        //用code交换来token
         wx.request({
           url: 'https://tonylifepix.cn/auth/wxlogin',
           success: res => {
@@ -29,29 +31,43 @@ App({
           },
           method: 'POST'
         })
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            },
-          })
-        }
-        else{
-          wx.authorize({ 
-            scope: 'scope.userInfo' 
-          })
-        }
+        //获取用户权限情况
+        wx.getSetting({
+          success: res => {
+            if (res.authSetting['scope.userInfo']) {
+              //获取userinfo
+              wx.getUserInfo({
+                success: res => {
+                  this.globalData.userInfo = res.userInfo
+                  this.globalData.userInfo['token'] = this.globalData.token
+                  if (this.userInfoReadyCallback) {
+                    this.userInfoReadyCallback(res)
+                  }
+                  //更新服务器userinfo
+                  wx.request({
+                    url: 'https://tonylifepix.cn/api/getuser',
+                    method: 'POST',
+                    data: this.globalData.userInfo,
+                    success: res => {
+                      console.log(res.data)
+                      //获取username
+                      this.globalData.username = res.data.data.username
+                      if (this.usernameReadyCallback) {
+                        this.usernameReadyCallback(res.data.data.username)
+                      }
+                    }
+                  })
+                },
+              })
+            }
+            else {
+              //请求权限,已报废
+              wx.authorize({
+                scope: 'scope.userInfo'
+              })
+            }
+          }
+        })
       }
     })
   }

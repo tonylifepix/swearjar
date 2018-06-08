@@ -6,10 +6,9 @@ Page({
   data: {
     inputValue: ''
   },
-  create: function (e) {
+  gocreate: function (e) {
     var title = e.detail.value.title;
     var content = e.detail.value.content;
-
     wx.request({
       url: 'https://tonylifepix.cn/api/item/create',
       success: res => {
@@ -25,8 +24,5 @@ Page({
       },
       method: 'POST'
     })
-    
-    
-    
   }
 })

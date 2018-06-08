@@ -4,11 +4,12 @@ const app = getApp()
 
 Page({
   data: {
-    hasList:true,
+    hasList:true, //TODO:在列表为空的时候将hasList=false
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    jarlist:[]
+    jarlist:[],
+    first_load:true
   },
   //事件处理函数
   go2newpage: function() {
@@ -22,6 +23,22 @@ Page({
     })
   },
   onLoad: function () {
+    app.tokenCallback = token => {
+      wx.request({
+        url: 'https://tonylifepix.cn/api/item/list',
+        success: res => {
+          console.log(res.data)
+          this.setData({
+            jarlist: res.data.data.all_item
+          })
+          this.first_load = false
+        },
+        data: {
+          'token': app.globalData.token
+        },
+        method: 'GET'
+      })
+    }
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -50,12 +67,14 @@ Page({
     }
   },
   onShow:function(e){
-    app.tokenCallback = token => {
+    console.log('onShow页面更新')
+    if (this.first_load == false){
       wx.request({
         url: 'https://tonylifepix.cn/api/item/list',
         success: res => {
+          console.log(res.data)
           this.setData({
-            jarlist: res.data.data.user_item
+            jarlist: res.data.data.all_item
           })
         },
         data: {
@@ -63,7 +82,7 @@ Page({
         },
         method: 'GET'
       })
-    }
+    }      
   },
   getUserInfo: function (e) {
     console.log(e)

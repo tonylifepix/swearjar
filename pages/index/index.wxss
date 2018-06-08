@@ -31,6 +31,8 @@
 .jar-info-left > .title{
   display: block;
   font-size: 60rpx;
+  max-width: 7em;
+  overflow: hidden;
 }
 
 .jar-info-left > .creator{
