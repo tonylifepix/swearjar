@@ -22,6 +22,7 @@ Page({
     })
   },
   onLoad: function () {
+    wx.showNavigationBarLoading()
     app.tokenCallback = token => {
       wx.request({
         url: 'https://tonylifepix.cn/api/item/list',
@@ -30,6 +31,7 @@ Page({
           this.setData({
             jarlist: res.data.data.all_item,
           })
+          wx.hideNavigationBarLoading()
         },
         data: {
           'token': app.globalData.token
