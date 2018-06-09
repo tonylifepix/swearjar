@@ -20,7 +20,6 @@ Page({
   onLoad: function (options) {
     let jarid = options.id
     console.log('jid:' + jarid)
-    
     wx.request({
       url: 'https://tonylifepix.cn/api/item/detail/'+jarid,
       success: res => {
@@ -49,13 +48,14 @@ Page({
       },
       method: 'GET'
     })
-
   },
+
   admit: function (){
     wx.navigateTo({
       url: '../pay/pay?id=' + this.data.jid,
     })
   },
+
   popMenu: function(){
     wx.showActionSheet({
       itemList: ['清空记录', '修改', '删除'],
@@ -71,6 +71,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: '您的好友邀请您一起自律',
+      path: '/pages/detail/detail?id=' + this.data.jarid
+    }
   }
 })
