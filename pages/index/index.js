@@ -36,7 +36,8 @@ Page({
         success: res => {
           console.log(res.data)
           this.setData({
-            jarlist: res.data.data.all_item
+            jarlist: res.data.data.all_item,
+            hasList: (res.data.data.all_item.length==0)?false:true
           })
           wx.hideNavigationBarLoading()
         },
