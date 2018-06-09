@@ -82,7 +82,7 @@ Page({
 
   popMenu: function(){
     wx.showActionSheet({
-      itemList: ['清空记录', '修改', '删除'],
+      itemList: ['清空记录', '删除'],
       success: function (res) {
         var now_page = getCurrentPages()[getCurrentPages().length-1];
         if(res.tapIndex == 0){
@@ -102,9 +102,6 @@ Page({
           })
         }
         if (res.tapIndex == 1) {
-          console.log('修改')
-        }
-        if (res.tapIndex == 2) {
           console.log('删除')
           wx.request({
             url: 'https://tonylifepix.cn/api/item/delete/' + now_page.data.jid,
