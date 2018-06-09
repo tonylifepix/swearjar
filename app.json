@@ -7,7 +7,8 @@
     "pages/pos/pos",
     "pages/help/help",
     "pages/pay/pay",
-    "pages/intro/intro"
+    "pages/intro/intro",
+    "pages/welcome/welcome"
   ],
   "window": {
     "backgroundTextStyle": "light",

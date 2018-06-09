@@ -1,0 +1,10 @@
+/* pages/welcome/welcome.wxss */
+page{
+  background-color: #011935;
+  text-align: center;
+  color: white;
+}
+
+.title{
+  font-size: 80rpx;
+}

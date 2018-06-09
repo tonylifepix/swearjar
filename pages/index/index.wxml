@@ -1,7 +1,6 @@
 <!--index.wxml-->
 <view class="container">
   <scroll-view wx:if="{{hasList}}" scroll-y class="jarlist">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取信息 </button>
     <view wx:key="id" wx:for="{{jarlist}}" class="list-item" data-jid="{{item.id}}" bindtap='jardetail'>
       <view class="jar-info-left">
         <text class="title">{{item.title}}</text>
