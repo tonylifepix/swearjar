@@ -69,19 +69,7 @@ Page({
   onShow:function(e){
     console.log('onShow页面更新')
     if (this.first_load == false){
-      wx.request({
-        url: 'https://tonylifepix.cn/api/item/list',
-        success: res => {
-          console.log(res.data)
-          this.setData({
-            jarlist: res.data.data.all_item
-          })
-        },
-        data: {
-          'token': app.globalData.token
-        },
-        method: 'GET'
-      })
+      wx.startPullDownRefresh()
     }      
   },
   getUserInfo: function (e) {
@@ -96,6 +84,22 @@ Page({
     let id = e.currentTarget.dataset.jid
     wx.navigateTo({
       url: '../detail/detail?id=' + id
+    })
+  },
+  onPullDownRefresh: function () {
+    wx.request({
+      url: 'https://tonylifepix.cn/api/item/list',
+      success: res => {
+        console.log(res.data)
+        this.setData({
+          jarlist: res.data.data.all_item
+        })
+        wx.stopPullDownRefresh()
+      },
+      data: {
+        'token': app.globalData.token
+      },
+      method: 'GET'
     })
   }
 })
