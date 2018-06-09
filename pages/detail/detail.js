@@ -19,7 +19,6 @@ Page({
 
   onLoad: function (options) {
     let jarid = options.id
-    console.log('jid:' + jarid)
     wx.request({
       url: 'https://tonylifepix.cn/api/item/detail/'+jarid,
       success: res => {
@@ -42,6 +41,7 @@ Page({
           commiteelist: res.data.data.joined_user_set,
           commiteelen: res.data.data.joined_user_set.length
         })
+        console.log(this.data.jid)
       },
       data: {
         'token': app.globalData.token
@@ -60,7 +60,42 @@ Page({
     wx.showActionSheet({
       itemList: ['清空记录', '修改', '删除'],
       success: function (res) {
-        console.log(res.tapIndex)
+        var now_page = getCurrentPages()[getCurrentPages().length-1];
+        if(res.tapIndex == 0){
+          console.log('清空记录')
+          wx.request({
+            url: 'https://tonylifepix.cn/api/item/clear/' + now_page.data.jid,
+            success: res => {
+              console.log(res.data);
+              if (res.data.code == 1) {
+                wx.startPullDownRefresh()
+              }
+            },
+            data: {
+              'token': app.globalData.token,
+            },
+            method: 'GET'
+          })
+        }
+        if (res.tapIndex == 1) {
+          console.log('修改')
+        }
+        if (res.tapIndex == 2) {
+          console.log('删除')
+          wx.request({
+            url: 'https://tonylifepix.cn/api/item/delete/' + now_page.data.jid,
+            success: res => {
+              console.log(res.data);
+              if(res.data.code==1){
+                wx.navigateBack({})
+              }
+            },
+            data: {
+              'token': app.globalData.token,
+            },
+            method: 'GET'
+          })
+        }
       },
       fail: function (res) {
         console.log(res.errMsg)
@@ -73,7 +108,11 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '您的好友邀请您一起自律',
-      path: '/pages/detail/detail?id=' + this.data.jarid
+      path: '/pages/detail/detail?id=' + this.data.jid
     }
+  },
+
+  onPullDownRefresh: function () {
+    wx.startPullDownRefresh()
   }
 })
