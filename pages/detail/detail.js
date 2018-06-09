@@ -51,7 +51,7 @@ Page({
   },
 
   onShow:function(){
-
+    wx.startPullDownRefresh()
   },
 
   admit: function (){
