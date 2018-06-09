@@ -1,1 +1,12 @@
 /* pages/help/help.wxss */
+page{
+  background-color: #011935;
+  text-align: center;
+  color: white;
+}
+
+text{
+  margin:0 auto;
+  display: block;
+  width:70%;
+}

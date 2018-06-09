@@ -17,6 +17,11 @@ Page({
     console.log('jid:' + jarid)
   },
 
+  go2help: function () {
+    wx.navigateTo({
+      url: '../help/help'
+    })
+  },
   /**
    * 用户点击右上角分享
    */
