@@ -26,36 +26,43 @@ Page({
 
   onShow:function(){
     wx.showNavigationBarLoading()
-    wx.request({
-      url: 'https://tonylifepix.cn/api/item/detail/' + this.data.jid,
-      success: res => {
-        console.log(res.data);
-        console.log('刷新成功')
-        let datas = res.data.data.joined_user_set;
-        datas.forEach(item => {
-          item.created = item.created.substr(0, 10)
-        })
-        this.setData({
-          jid: res.data.data.id,
-          isCreator: res.data.data.isCreator,
-          info: {
-            id: res.data.data.id,
-            title: res.data.data.title,
-            content: res.data.data.content,
-            creator: res.data.data.owner.nickName,
-            idate: res.data.data.created.substring(0, 10),
-            total: res.data.data.total,
-          },
-          commiteelist: res.data.data.joined_user_set,
-          commiteelen: res.data.data.joined_user_set.length
-        })
+    if (app.globalData.token.length!=0){
+      wx.request({
+        url: 'https://tonylifepix.cn/api/item/detail/' + this.data.jid,
+        success: res => {
+          console.log(res.data);
+          console.log('刷新成功')
+          let datas = res.data.data.joined_user_set;
+          datas.forEach(item => {
+            item.created = item.created.substr(0, 10)
+          })
+          this.setData({
+            jid: res.data.data.id,
+            isCreator: res.data.data.isCreator,
+            info: {
+              id: res.data.data.id,
+              title: res.data.data.title,
+              content: res.data.data.content,
+              creator: res.data.data.owner.nickName,
+              idate: res.data.data.created.substring(0, 10),
+              total: res.data.data.total,
+            },
+            commiteelist: res.data.data.joined_user_set,
+            commiteelen: res.data.data.joined_user_set.length
+          })
+          wx.hideNavigationBarLoading()
+        },
+        data: {
+          'token': app.globalData.token
+        },
+        method: 'GET'
+      })
+    }else{
+      app.tokenCallback = token => {
+        wx.startPullDownRefresh()
         wx.hideNavigationBarLoading()
-      },
-      data: {
-        'token': app.globalData.token
-      },
-      method: 'GET'
-    })
+      }
+    }
   },
 
   admit: function (){
