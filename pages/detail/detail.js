@@ -50,6 +50,10 @@ Page({
     })
   },
 
+  onShow:function(){
+
+  },
+
   admit: function (){
     wx.navigateTo({
       url: '../pay/pay?id=' + this.data.jid,

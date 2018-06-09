@@ -16,8 +16,8 @@ Page({
       },
       method: 'GET'
     })
-    wx.redirectTo({
-      url: '../detail/detail?id='+this.data.jarid,
+    wx.navigateBack({
+      
     })
   },
   onLoad: function (options) {
