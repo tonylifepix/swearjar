@@ -1,15 +1,30 @@
 // pages/pay/pay.js
-Page({
+const app = getApp()
 
-  /**
-   * 页面的初始数据
-   */
+Page({
   data: {
-  
+    jarid:null
   },
   mark: function(){
+    wx.request({
+      url: 'https://tonylifepix.cn/api/item/join/' + this.jarid,
+      success: res => {
+        console.log(res.data);
+      },
+      data: {
+        'token': app.globalData.token,
+      },
+      method: 'GET'
+    })
     wx.redirectTo({
       url: '../detail/detail',
+    })
+  },
+  onLoad: function (options) {
+    let jarid = options.id
+    console.log('jid:' + jarid)
+    this.setData({
+      jarid:jarid
     })
   }
 })

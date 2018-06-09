@@ -2,34 +2,20 @@
 //获取应用实例
 const app = getApp()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     jid: 0,
     isCreator:true,
     info: {
       id: 1,
-      title: 'dummy title',
-      content:'每个微信小程序都可以有自己的本地缓存每个微信小程序都可以有自己的本地缓存每个微信小程序都可以有自己的本地缓存每个微信小程序都可以有自己的本地缓存',
-      creator: 'dummy',
+      title: 'null',
+      content:'null',
+      creator: 'null',
       idate: '1970/01/01',
-      total: 21,  
+      total: 0,  
     },
-    commiteelist: [{
-      uid: 9,
-      uava: '',
-      uname: 'dummy1',
-      ctime: '2001/01/02',
-    }]
+    commiteelist: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   * TODO:这里还要把jar的数据给拉出来提供给页面
-   *      如果拉取失败还要给个提示，然后回退
-   */
   onLoad: function (options) {
     let jarid = options.id
     console.log('jid:' + jarid)
@@ -38,12 +24,18 @@ Page({
       url: 'https://tonylifepix.cn/api/item/detail/'+jarid,
       success: res => {
         console.log(res.data);
-        console.log(res.data.data.owner.username)
-        console.log(app.globalData.username)
-        console.log(res.data.data.owner.username == app.globalData.username)
         this.setData({ 
           jid: res.data.data.id,
           isCreator: (res.data.data.owner.username == app.globalData.username),
+          info:{
+            id: res.data.data.id,
+            title: res.data.data.title,
+            content: res.data.data.content,
+            creator: res.data.data.owner.nickName,
+            idate: res.data.data.created.substring(0,10),
+            total:res.data.data.total,
+          },
+          commiteelist: res.data.data.participated
         })
       },
       data: {
@@ -53,9 +45,10 @@ Page({
     })
 
   },
-  admit: function(jid){
+  admit: function (){
+    console.log(this.jid)
     wx.navigateTo({
-      url: '../pay/pay',
+      url: '../pay/pay?id=' + 0,
     })
   },
   popMenu: function(){
