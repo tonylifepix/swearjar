@@ -6,5 +6,22 @@ page{
 }
 
 .title{
+  margin-top: 40rpx;
   font-size: 80rpx;
+}
+
+.intro{
+  margin-top: 40rpx;
+}
+
+.login{
+  margin-top: 100rpx; 
+  line-height: 128rpx;
+  font-size: 50rpx;
+  color: #fff;
+  text-align: center;
+  background: #37c6c0;
+  width: 256rpx;
+  height: 128rpx;
+  border-radius: 128rpx;
 }
