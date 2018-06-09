@@ -7,7 +7,7 @@ Page({
   },
   mark: function(){
     wx.request({
-      url: 'https://tonylifepix.cn/api/item/join/' + this.jarid,
+      url: 'https://tonylifepix.cn/api/item/join/' + this.data.jarid,
       success: res => {
         console.log(res.data);
       },
@@ -17,7 +17,7 @@ Page({
       method: 'GET'
     })
     wx.redirectTo({
-      url: '../detail/detail',
+      url: '../detail/detail?id='+this.data.jarid,
     })
   },
   onLoad: function (options) {

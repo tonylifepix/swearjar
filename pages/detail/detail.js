@@ -46,9 +46,8 @@ Page({
 
   },
   admit: function (){
-    console.log(this.jid)
     wx.navigateTo({
-      url: '../pay/pay?id=' + 0,
+      url: '../pay/pay?id=' + this.data.jid,
     })
   },
   popMenu: function(){

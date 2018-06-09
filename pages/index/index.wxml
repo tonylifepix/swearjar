@@ -5,7 +5,7 @@
     <view wx:key="id" wx:for="{{jarlist}}" class="list-item" data-jid="{{item.id}}" bindtap='jardetail'>
       <view class="jar-info-left">
         <text class="title">{{item.title}}</text>
-        <text class="owner">由 {{item.owner}} 创建</text>
+        <text class="owner">由 {{item.owner.nickName}} 创建</text>
       </view>
       <view class="jar-info-right">
         <text class="total">{{item.total}}次</text>
