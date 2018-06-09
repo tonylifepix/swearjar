@@ -15,7 +15,6 @@ Page({
     },
     commiteelist: [],
     commiteelen:0,
-    first_load:true
   },
 
   onLoad: function (options) {
@@ -41,7 +40,6 @@ Page({
           },
           commiteelist: res.data.data.joined_user_set,
           commiteelen: res.data.data.joined_user_set.length,
-          first_load:false
         })
         console.log(this.data.jid)
       },
@@ -53,8 +51,7 @@ Page({
   },
 
   onShow:function(){
-    if(this.first_load == false)
-      wx.startPullDownRefresh()
+    wx.startPullDownRefresh()
   },
 
   admit: function (){
