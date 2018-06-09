@@ -67,7 +67,21 @@ Page({
   onShow:function(e){
     console.log('onShow页面更新')
     if(app.globalData.token.length!=0){
-      wx.startPullDownRefresh()
+      wx.showNavigationBarLoading()
+      wx.request({
+        url: 'https://tonylifepix.cn/api/item/list',
+        success: res => {
+          console.log(res.data)
+          this.setData({
+            jarlist: res.data.data.all_item
+          })
+          wx.hideNavigationBarLoading()
+        },
+        data: {
+          'token': app.globalData.token
+        },
+        method: 'GET'
+      })
     }
   },
   getUserInfo: function (e) {
