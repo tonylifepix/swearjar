@@ -9,7 +9,6 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     jarlist:[],
-    first_load:true
   },
   //事件处理函数
   go2newpage: function() {
@@ -29,9 +28,8 @@ Page({
         success: res => {
           console.log(res.data)
           this.setData({
-            jarlist: res.data.data.all_item
+            jarlist: res.data.data.all_item,
           })
-          this.first_load = false
         },
         data: {
           'token': app.globalData.token
@@ -68,9 +66,9 @@ Page({
   },
   onShow:function(e){
     console.log('onShow页面更新')
-    if (this.first_load == false){
+    if(app.globalData.token.length!=0){
       wx.startPullDownRefresh()
-    }      
+    }
   },
   getUserInfo: function (e) {
     console.log(e)
