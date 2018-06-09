@@ -10,15 +10,19 @@ Page({
       url: 'https://tonylifepix.cn/api/item/join/' + this.data.jarid,
       success: res => {
         console.log(res.data);
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 1000
+        })
       },
       data: {
         'token': app.globalData.token,
       },
       method: 'GET'
     })
-    wx.navigateBack({
-      
-    })
+    
+    wx.navigateBack({})
   },
   onLoad: function (options) {
     let jarid = options.id

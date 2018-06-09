@@ -1,7 +1,8 @@
 // pages/success/success.js
+var app = getApp()
 Page({
   data: {
-    myqrcode:{},
+    myqrcode:'',
     jarid:''
   },
 
@@ -14,11 +15,10 @@ Page({
   onLoad: function (options) {
     let jarid = options.id
     this.setData({
-      jarid:jarid
+      jarid:jarid,
+      myqrcode:'https://tonylifepix.cn/api/wxacode/'+jarid,
     })
-    console.log('jid:' + jarid)
   },
-
   go2help: function () {
     wx.navigateTo({
       url: '../help/help'
