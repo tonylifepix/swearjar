@@ -14,8 +14,8 @@
     <text class="commitee-title">参与者</text>
     <view wx:key="created" wx:for="{{commiteelist}}">
       <view class="commitee">
-        <image class="avatar" src='{{item.avatarUrl}}'></image>
-        <text class="name">{{item.nickName}}</text>
+        <image class="avatar" src='{{item.user.avatarUrl}}'></image>
+        <text class="name">{{item.user.nickName}}</text>
         <text class="time">{{item.created}}</text>
       </view>
     </view>

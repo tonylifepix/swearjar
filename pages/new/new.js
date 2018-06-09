@@ -19,8 +19,9 @@ Page({
       url: 'https://tonylifepix.cn/api/item/create',
       success: res => {
         console.log(res.data);
+        console.log(res.data.data.id)
         wx.redirectTo({
-          url: '../success/success'
+          url: '../success/success?id=' + res.data.data.id
         })
       },
       data: data,
