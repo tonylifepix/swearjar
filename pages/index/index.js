@@ -18,6 +18,16 @@ Page({
       url: '../help/help'
     })
   },
+  onLoad:function(){
+    wx.getSetting({
+      success: res => {
+        if (!res.authSetting['scope.userInfo']) 
+          wx.navigateTo({
+            url: '../welcome/welcome'
+          })
+      }
+    })
+  },
   onShow:function(e){
     if(app.globalData.token.length!=0){
       wx.showNavigationBarLoading()

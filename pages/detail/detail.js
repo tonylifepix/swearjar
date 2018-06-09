@@ -22,7 +22,16 @@ Page({
     this.setData({ 
       jid: jarid,
     })
+    wx.getSetting({
+      success: res => {
+        if (!res.authSetting['scope.userInfo'])
+          wx.navigateTo({
+            url: '../welcome/welcome'
+          })
+      }
+    })
   },
+
 
   onShow:function(){
     wx.showNavigationBarLoading()
