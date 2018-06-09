@@ -21,10 +21,11 @@ Page({
   onLoad:function(){
     wx.getSetting({
       success: res => {
-        if (!res.authSetting['scope.userInfo']) 
+        if (!res.authSetting['scope.userInfo']) {
           wx.navigateTo({
             url: '../welcome/welcome'
           })
+        }
       }
     })
   },
@@ -46,7 +47,7 @@ Page({
         },
         method: 'GET'
       })
-    }else{
+    }else {
       app.tokenCallback = token => {
         wx.startPullDownRefresh()
         wx.hideNavigationBarLoading()

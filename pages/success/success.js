@@ -13,7 +13,9 @@ Page({
 
   onLoad: function (options) {
     let jarid = options.id
-    this.data.jarid = jarid
+    this.setData({
+      jarid:jarid
+    })
     console.log('jid:' + jarid)
   },
 
