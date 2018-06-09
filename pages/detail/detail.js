@@ -117,6 +117,7 @@ Page({
       url: 'https://tonylifepix.cn/api/item/detail/' + this.data.jid,
       success: res => {
         console.log(res.data);
+        console.log('刷新成功')
         let datas = res.data.data.joined_user_set;
         datas.forEach(item => {
           item.created = item.created.substr(0, 10)
@@ -135,7 +136,7 @@ Page({
           commiteelist: res.data.data.joined_user_set,
           commiteelen: res.data.data.joined_user_set.length
         })
-        console.log(this.data.jid)
+        wx.stopPullDownRefresh()
       },
       data: {
         'token': app.globalData.token
