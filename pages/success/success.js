@@ -21,9 +21,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    console.log('../detail/detail?id=' + this.data.jarid)
     return {
       title: '您的好友邀请您一起自律',
-      path: '/detail?id=' + this.data.jarid
+      path: '/pages/detail/detail?id=' + this.data.jarid
     }
   }
 })

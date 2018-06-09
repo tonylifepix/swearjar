@@ -24,6 +24,10 @@ Page({
       url: 'https://tonylifepix.cn/api/item/detail/'+jarid,
       success: res => {
         console.log(res.data);
+        let datas = res.data.data.joined_user_set;
+        datas.forEach( item => {
+          item.created = item.created.substr(0,10)
+        })
         this.setData({ 
           jid: res.data.data.id,
           isCreator: (res.data.data.owner.username == app.globalData.username),
@@ -35,7 +39,7 @@ Page({
             idate: res.data.data.created.substring(0,10),
             total:res.data.data.total,
           },
-          commiteelist: res.data.data.participated
+          commiteelist: res.data.data.joined_user_set
         })
       },
       data: {
@@ -52,7 +56,7 @@ Page({
   },
   popMenu: function(){
     wx.showActionSheet({
-      itemList: ['分享','清空记录', '修改', '删除'],
+      itemList: ['清空记录', '修改', '删除'],
       success: function (res) {
         console.log(res.tapIndex)
       },
