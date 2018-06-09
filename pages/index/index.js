@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    hasList:true, //TODO:在列表为空的时候将hasList=false
+    hasList:true,
     jarlist:[],
   },
   //事件处理函数
