@@ -13,7 +13,8 @@ Page({
       idate: '1970/01/01',
       total: 0,  
     },
-    commiteelist: []
+    commiteelist: [],
+    commiteelen:0
   },
 
   onLoad: function (options) {
@@ -39,7 +40,8 @@ Page({
             idate: res.data.data.created.substring(0,10),
             total:res.data.data.total,
           },
-          commiteelist: res.data.data.joined_user_set
+          commiteelist: res.data.data.joined_user_set,
+          commiteelen: res.data.data.joined_user_set.length
         })
       },
       data: {

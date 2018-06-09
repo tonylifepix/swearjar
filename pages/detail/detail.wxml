@@ -10,7 +10,7 @@
     <button plain='true' style='color:#37c6c0' bindtap='admit'>自罚</button>
     <button plain='true' style='color:#fff' bindtap='popMenu'>更多</button>
   </view>
-  <view wx:if="{{commiteelist}}" class="commitee-list">
+  <view wx:if="{{commiteelen>0}}" class="commitee-list">
     <text class="commitee-title">参与者</text>
     <view wx:key="created" wx:for="{{commiteelist}}">
       <view class="commitee">
