@@ -49,7 +49,20 @@ Page({
       })
     }else {
       app.tokenCallback = token => {
-        wx.startPullDownRefresh()
+        wx.request({
+          url: 'https://tonylifepix.cn/api/item/list',
+          success: res => {
+            console.log(res.data)
+            this.setData({
+              jarlist: res.data.data.all_item
+            })
+            wx.stopPullDownRefresh()
+          },
+          data: {
+            'token': app.globalData.token
+          },
+          method: 'GET'
+        })
         wx.hideNavigationBarLoading()
       }
     }
