@@ -68,10 +68,14 @@ Page({
             wx.showToast({
               title: '该自律罐不存在',
               icon: 'none',
-              duration: 2000
-            })
-            wx.reLaunch({
-              url: '/pages/index/index',
+              duration: 2000,
+              success: res => {
+                setTimeout(function(){
+                  wx.reLaunch({
+                    url: '/pages/index/index',
+                  })
+                },2000)
+              }
             })
           }
         },
