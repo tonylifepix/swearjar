@@ -65,6 +65,11 @@ Page({
           else
           {
             wx.hideNavigationBarLoading()
+            wx.showToast({
+              title: '该自律罐不存在',
+              icon: 'none',
+              duration: 1000
+            })
             wx.reLaunch({
               url: '/pages/index/index',
             })
