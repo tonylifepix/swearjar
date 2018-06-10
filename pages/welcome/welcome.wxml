@@ -2,5 +2,5 @@
 <view class="container">
   <text class="title">欢迎使用自律罐</text>
   <text class="intro">第一次使用请登录</text>
-  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="login"> 登录 </button>
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="login"> 登录 </button>
 </view>

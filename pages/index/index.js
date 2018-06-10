@@ -30,17 +30,15 @@ Page({
     })
   },
   onShow:function(e){
-    console.log("调用index.js onShow函数")
     if(app.globalData.token.length!=0){
       wx.showNavigationBarLoading()
-      console.log("app.globalData.token准备好")
       wx.request({
         url: 'https://tonylifepix.cn/api/item/list',
         success: res => {
-          console.log(res.data)
+          console.log(res.data.code)
           this.setData({
             jarlist: res.data.data.all_item,
-            hasList: (res.data.data.all_item.length==0)?false:true
+            hasList: (res.data.data.all_item.length == 0) ? false : true
           })
           wx.hideNavigationBarLoading()
         },
@@ -50,7 +48,6 @@ Page({
         method: 'GET'
       })
     }else {
-      console.log("token没准备好，需要回调")
       app.tokenCallback = token => {
         wx.request({
           url: 'https://tonylifepix.cn/api/item/list',

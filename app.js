@@ -1,5 +1,5 @@
 //app.js
-var login = require('utils/login.js') // 登录模块
+const login = require('utils/login.js') // 登录模块
 App({
   globalData: {
     userInfo: null,
@@ -16,6 +16,25 @@ App({
     if(this.globalData.token == '')
     {
       login.WxLogin(this) // 登录模块化，传入this指针，并缓存token
+    }
+    else
+    {
+      wx.request({
+        url: 'https://tonylifepix.cn/api/checkuser',
+        data: {
+          token: this.globalData.token
+        },
+        success: res => {
+          if (res.data.code<0)
+          {
+            login.WxLogin(this)
+            // 登录出错，重新刷新一下页面
+            wx.reLaunch({
+              url: 'pages/index/index',
+            })
+          }
+        }
+      })
     }
   },
 })
