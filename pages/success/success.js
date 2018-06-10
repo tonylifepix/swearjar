@@ -14,10 +14,34 @@ Page({
 
   onLoad: function (options) {
     let jarid = options.id
+    //jarid的缓存是最优先的
     this.setData({
-      jarid:jarid,
-      myqrcode:'https://tonylifepix.cn/api/wxacode/'+jarid,
+      jarid: jarid,
     })
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.downloadFile({
+      url: 'https://tonylifepix.cn/api/wxacode/' + jarid,
+      success: res=>{
+        console.log(res.tempFilePath)
+        if (res.statusCode === 200) {
+          this.setData({
+            myqrcode: res.tempFilePath,
+          })
+          wx.hideLoading()
+        }else{
+          //加载失败
+          wx.hideLoading()
+          wx.showToast({
+            title: '获取图片失败',
+            icon: '/statics/error.png',
+            duration: 1000
+          })
+        }
+      },
+    })
+    
   },
   go2help: function () {
     wx.navigateTo({
