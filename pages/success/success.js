@@ -30,7 +30,8 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '您的好友邀请您一起自律',
-      path: '/pages/detail/detail?id=' + this.data.jarid
+      path: '/pages/detail/detail?id=' + this.data.jarid,
+      imageUrl:'/statics/logo.jpg'
     }
   }
 })
