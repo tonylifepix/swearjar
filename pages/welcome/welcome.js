@@ -8,12 +8,39 @@ Page({
   },
   getUserInfo: function (e) {
     console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-    wx.navigateBack({})
+    if(e.detail.errMsg.indexOf('fail')!=-1)
+    {
+      wx.showModal({
+        title: '抱歉',
+        content: '您点击了拒绝授权，将无法正常使用小程序，请重新点击登录按钮,或者退出小程序重试',
+        success: function (res) {
+          if(res.confirm)
+          {
+
+          }
+          else if(res.cancel)
+          {
+
+          }
+        }
+      })
+    }
+    else
+    {
+      app.globalData.userInfo = e.detail.userInfo
+      this.setData({
+        userInfo: e.detail.userInfo,
+        hasUserInfo: true
+      })
+      wx.navigateBack({
+        fail: res => {
+          wx.reLaunch({
+            url: '/pages/index/index',
+          })
+        }
+      })
+      
+    }
   },
   onLoad: function(){
     if (app.globalData.userInfo) {
