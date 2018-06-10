@@ -40,25 +40,35 @@ Page({
         url: 'https://tonylifepix.cn/api/item/detail/' + this.data.jid,
         success: res => {
           console.log(res.data);
-          let datas = res.data.data.joined_user_set;
-          datas.forEach(item => {
-            item.created = item.created.substr(0, 10)
-          })
-          this.setData({
-            jid: res.data.data.id,
-            isCreator: res.data.data.isCreator,
-            info: {
-              id: res.data.data.id,
-              title: res.data.data.title,
-              content: res.data.data.content,
-              creator: res.data.data.owner.nickName,
-              idate: res.data.data.created.substring(0, 10),
-              total: res.data.data.total,
-            },
-            commiteelist: res.data.data.joined_user_set,
-            commiteelen: res.data.data.joined_user_set.length
-          })
-          wx.hideNavigationBarLoading()
+          if(res.data.code>=0)
+          {
+            let datas = res.data.data.joined_user_set;
+            datas.forEach(item => {
+              item.created = item.created.substr(0, 10)
+            })
+            this.setData({
+              jid: res.data.data.id,
+              isCreator: res.data.data.isCreator,
+              info: {
+                id: res.data.data.id,
+                title: res.data.data.title,
+                content: res.data.data.content,
+                creator: res.data.data.owner.nickName,
+                idate: res.data.data.created.substring(0, 10),
+                total: res.data.data.total,
+              },
+              commiteelist: res.data.data.joined_user_set,
+              commiteelen: res.data.data.joined_user_set.length
+            })
+            wx.hideNavigationBarLoading()
+          }
+          else
+          {
+            wx.hideNavigationBarLoading()
+            wx.reLaunch({
+              url: '/pages/index/index',
+            })
+          }
         },
         data: {
           'token': app.globalData.token
