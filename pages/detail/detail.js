@@ -67,7 +67,7 @@ Page({
             wx.hideNavigationBarLoading()
             wx.showToast({
               title: '该自律罐不存在',
-              icon: 'none',
+              image: '/statics/error.png',
               duration: 2000,
               success: res => {
                 setTimeout(function(){
