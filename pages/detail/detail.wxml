@@ -7,8 +7,8 @@
     <text class="total">{{info.total}}次</text>
   </view>
   <view class="jar-action">
-    <button plain='true' style='color:#37c6c0' bindtap='admit'>自罚</button>
-    <button wx:if='{{isCreator}}' plain='true' style='color:#fff' bindtap='popMenu'>更多</button>
+    <button class="punish" hover-class="punish-p" bindtap='admit'>自罚</button>
+    <button wx:if='{{isCreator}}' class="more" hover-class="more-p"  bindtap='popMenu'>更多</button>
   </view>
   <view wx:if="{{commiteelen>0}}" class="commitee-list">
     <text class="commitee-title">参与者</text>

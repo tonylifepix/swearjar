@@ -48,14 +48,42 @@
   flex-direction: row;
   width: 100%;
   background-color: #011935;
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
 }
 
-.jar-action > button {
+.punish{
   margin-left: auto;
   margin-right: auto;
   width: 90%;
+  line-height: 90rpx;
+  font-size: 40rpx;
+  color: #fff;
+  text-align: center;
+  background: #37c6c0;
+  height: 90rpx;
+  border-radius: 90rpx;
+}
+
+.punish-p{
+  background: #1db0b8;
+}
+
+.more{
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  line-height: 90rpx;
+  font-size: 40rpx;
+  color: #011935;
+  text-align: center;
+  background: #fff;
+  height: 90rpx;
+  border-radius: 90rpx;
+}
+
+.more-p{
+  background: #aeaeae;
 }
 
 .commitee-title {
