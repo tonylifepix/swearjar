@@ -128,7 +128,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '您的好友邀请您一起自律',
+      title: '来和我一起自律吧~',
       path: '/pages/detail/detail?id=' + this.data.jid
     }
   },
